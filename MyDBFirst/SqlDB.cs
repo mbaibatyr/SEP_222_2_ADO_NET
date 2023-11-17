@@ -34,14 +34,47 @@ namespace MyDBFirst
             //    Console.WriteLine(db.State);
             //}
 
-
-            using (SqlConnection db = new SqlConnection(conStr2))
+            try
             {
-                db.Open();
-                Console.WriteLine(db.State);
-                db.Close();
-                Console.WriteLine(db.State);
+                using (SqlConnection db = new SqlConnection(conStr2))
+                {
+                    db.Open();
+                    using (SqlCommand cmd = new SqlCommand("insert into ", db))
+                    {
+                        var res = cmd.ExecuteScalar();
+                        ;
+                    }
+
+                    Console.WriteLine(db.State);
+                    db.Close();
+                    Console.WriteLine(db.State);
+                }
+
+             
             }
+            catch (Exception err)
+            {
+                Console.WriteLine(err.Message);
+            }
+
+            //SqlConnection db = null;
+
+            //try
+            //{
+            //    db = new SqlConnection(conStr2);
+            //    db.Open();
+            //    Console.WriteLine(db.State);
+            //}
+            //catch (Exception err)
+            //{
+            //    Console.WriteLine(err.Message);
+            //}
+            //finally
+            //{
+            //    db.Close();
+            //    Console.WriteLine(db.State);
+        //}
+
         }
     }
 }
