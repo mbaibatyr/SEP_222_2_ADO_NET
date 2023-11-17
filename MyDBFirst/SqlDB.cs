@@ -39,10 +39,12 @@ namespace MyDBFirst
                 using (SqlConnection db = new SqlConnection(conStr2))
                 {
                     db.Open();
-                    using (SqlCommand cmd = new SqlCommand("insert into ", db))
+                    for (int i = 0; i < 10; i++)
                     {
-                        var res = cmd.ExecuteScalar();
-                        ;
+                        using (SqlCommand cmd = new SqlCommand("insert into for_update values(" + i.ToString() + ", '" + Arr[i] +"')", db))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
                     }
 
                     Console.WriteLine(db.State);
@@ -78,3 +80,6 @@ namespace MyDBFirst
         }
     }
 }
+
+
+//https://github.com/mbaibatyr/SEP_222_2_ADO_NET.git
