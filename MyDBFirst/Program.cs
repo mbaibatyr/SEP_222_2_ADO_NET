@@ -8,7 +8,9 @@ namespace MyDBFirst
         public static void Main()
         {
             SqlDB db = new SqlDB();
-            db.TestConnection();            
+            //db.TestConnection();            
+            //db.Fetch2();
+            db.Fetch3();
         }
     }
 }
