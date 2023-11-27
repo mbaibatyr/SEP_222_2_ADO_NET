@@ -21,6 +21,11 @@
             <Canvas Background="Aqua"/>
         </UniformGrid>
 
-        <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige"/>
+        <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Директор" Binding="{Binding ceo}" Width="50"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding company}" Width="200"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
