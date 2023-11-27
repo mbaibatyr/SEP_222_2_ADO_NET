@@ -15,7 +15,7 @@
         <UniformGrid Grid.Row="0" Rows="1" Columns="3">
             <Canvas Background="AliceBlue">
                 <TextBox x:Name="tbCompany" Canvas.Left="71" TextWrapping="Wrap" Text="" Canvas.Top="14" Width="147" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                <Button x:Name="btFind" Content="Find" Canvas.Left="162" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button x:Name="btFind" Content="Find" Canvas.Left="144" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="73" Click="btFind_Click"/>
             </Canvas>
             <Canvas Background="AntiqueWhite"/>
             <Canvas Background="Aqua"/>
