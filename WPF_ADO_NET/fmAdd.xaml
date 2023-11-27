@@ -13,13 +13,21 @@
         </Grid.RowDefinitions>
         <UniformGrid Rows="1" Columns="2" Grid.Row="1">
             <Canvas Background="AliceBlue" >
-                <Button Content="OK" Canvas.Right="5" Canvas.Top="25"  Width="90" IsDefault="True"/>
+                <Button Content="OK" Canvas.Right="5" Canvas.Top="25"  Width="90" IsDefault="True" Click="Button_Click"/>
             </Canvas>
 
             <Canvas Background="AntiqueWhite">
                 <Button Content="Cancel" Width="90" Canvas.Left="5" Canvas.Top="25" IsCancel="True"/>
             </Canvas>
         </UniformGrid>
+
+        <UniformGrid Rows="10" Columns="2" Grid.Row="0" >
+            <Label Content="Компания" HorizontalAlignment="Right" />
+            <TextBox x:Name="tbCompany" Background="Bisque" Width="200" />
+            <Label Content="Компания" HorizontalAlignment="Right" />
+            <TextBox x:Name="tbCompany2" Background="Bisque" Width="200" />
+        </UniformGrid>
+
 
     </Grid>
 </Window>

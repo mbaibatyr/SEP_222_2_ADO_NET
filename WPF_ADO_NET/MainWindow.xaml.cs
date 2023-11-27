@@ -71,8 +71,12 @@ namespace WPF_ADO_NET
         {
             //var model = dgStaff.SelectedItems[0] as StaffInfoModel;
             //Title = $"{model.id} - {model.l_name} - { model.f_name }";
-            fmAdd form = new fmAdd();
-            form.ShowDialog();
+            fmAdd form = new fmAdd();                        
+            if ((bool)form.ShowDialog())
+            {
+                Title = form.tbCompany.Text;
+            }
+            
         }
     }
 }
