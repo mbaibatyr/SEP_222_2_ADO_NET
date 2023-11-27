@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_ADO_NET"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">  
-    <Grid>           
-       
-        <DataGrid x:Name="dg_1" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Grid.Row="0" Rows="1" Columns="3">
+            <Canvas Background="AliceBlue">
+                <TextBox x:Name="tbCompany" Canvas.Left="71" TextWrapping="Wrap" Text="" Canvas.Top="14" Width="147" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Button x:Name="btFind" Content="Find" Canvas.Left="162" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Canvas>
+            <Canvas Background="AntiqueWhite"/>
+            <Canvas Background="Aqua"/>
+        </UniformGrid>
+
+        <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige"/>
     </Grid>
 </Window>
