@@ -23,8 +23,10 @@
 
         <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Директор" Binding="{Binding ceo}" Width="50"/>
-                <DataGridTextColumn Header="Компания" Binding="{Binding company}" Width="200"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding f_name}" Width="50" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding l_name}" Width="50"/>
+                <DataGridTextColumn Header="Директор" Binding="{Binding ceo}" Width="100"/>
+                <DataGridTextColumn Header="Компания" Binding="{Binding company}" Width="100"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
