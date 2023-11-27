@@ -17,14 +17,17 @@
                 <TextBox x:Name="tbCompany" Canvas.Left="71" TextWrapping="Wrap" Text="" Canvas.Top="14" Width="147" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Button x:Name="btFind" Content="Find" Canvas.Left="144" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center" Height="24" Width="73" Click="btFind_Click"/>
             </Canvas>
-            <Canvas Background="AntiqueWhite"/>
+            <Canvas Background="AntiqueWhite">
+                <Button x:Name="btAdd" Content="Добавить" Canvas.Left="154" Canvas.Top="26" Height="34" Width="73" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btAdd_Click"/>
+            </Canvas>
             <Canvas Background="Aqua"/>
         </UniformGrid>
 
         <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige" AutoGenerateColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="id" Binding="{Binding id}" Width="50" Visibility="Hidden"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding f_name}" Width="50" />
-                <DataGridTextColumn Header="Фамилия" Binding="{Binding l_name}" Width="50"/>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding l_name}" Width="80"/>
                 <DataGridTextColumn Header="Директор" Binding="{Binding ceo}" Width="100"/>
                 <DataGridTextColumn Header="Компания" Binding="{Binding company}" Width="100"/>
             </DataGrid.Columns>

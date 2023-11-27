@@ -8,6 +8,8 @@ namespace WPF_ADO_NET.Model
 {
     internal class StaffInfoModel
     {
+        
+        public string id { get; set; }
         public string l_name { get; set; }
         public string f_name { get; set; }
         public string date_birth { get; set; }

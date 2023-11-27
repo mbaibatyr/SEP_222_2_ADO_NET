@@ -44,6 +44,7 @@ namespace WPF_ADO_NET
                 List<StaffInfoModel> lst = (from DataRow dr in dt.Rows
                                select new StaffInfoModel()
                                {
+                                   id = dr["id"].ToString(),
                                    ceo = dr["ceo"].ToString(),
                                    company = dr["company"].ToString(),
                                    cost = dr["cost"].ToString(),
@@ -64,6 +65,14 @@ namespace WPF_ADO_NET
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             db.Close();
-        }      
+        }
+
+        private void btAdd_Click(object sender, RoutedEventArgs e)
+        {
+            //var model = dgStaff.SelectedItems[0] as StaffInfoModel;
+            //Title = $"{model.id} - {model.l_name} - { model.f_name }";
+            fmAdd form = new fmAdd();
+            form.ShowDialog();
+        }
     }
 }
