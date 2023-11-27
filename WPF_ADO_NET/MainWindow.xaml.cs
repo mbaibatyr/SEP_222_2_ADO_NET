@@ -73,13 +73,18 @@ namespace WPF_ADO_NET
             //Title = $"{model.id} - {model.l_name} - { model.f_name }";
 
 
-            fmAdd form = new fmAdd();                        
+            fmAdd form = new fmAdd();
             if ((bool)form.ShowDialog())
-            {
-                Title = form.tbCompany.Text;
+            {                
+                using (SqlCommand cmd = new SqlCommand("pStaffInsert", db))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@l_name", form.tbLName.Text);
+                    cmd.Parameters.AddWithValue("@compmany", form.cbCompany.SelectedValue.ToString());
 
 
-                
+
+                }
             }
             
         }
@@ -107,5 +112,11 @@ namespace WPF_ADO_NET
             }
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            var value = cbCompany.SelectedValue.ToString();
+            value = (cbCompany.SelectedItem as ComboBoxModel).id;
+
+        }
     }
 }

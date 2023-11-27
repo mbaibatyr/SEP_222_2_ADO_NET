@@ -23,6 +23,7 @@
             <Canvas Background="Aqua">
                 <ComboBox Name="cbCompany" Canvas.Left="79" Canvas.Top="43" Width="159" HorizontalAlignment="Left" VerticalAlignment="Center" SelectedValuePath="id" DisplayMemberPath="name"/>
                 <Button Content="Button" Canvas.Left="38" Canvas.Top="10" Click="Button_Click"/>
+                <Button Content="Button" Canvas.Left="37" Canvas.Top="43" RenderTransformOrigin="0.028,0.41" Click="Button_Click_1"/>
             </Canvas>
         </UniformGrid>
 
