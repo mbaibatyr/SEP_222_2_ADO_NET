@@ -20,7 +20,10 @@
             <Canvas Background="AntiqueWhite">
                 <Button x:Name="btAdd" Content="Добавить" Canvas.Left="154" Canvas.Top="26" Height="34" Width="73" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btAdd_Click"/>
             </Canvas>
-            <Canvas Background="Aqua"/>
+            <Canvas Background="Aqua">
+                <ComboBox Name="cbCompany" Canvas.Left="79" Canvas.Top="43" Width="159" HorizontalAlignment="Left" VerticalAlignment="Center" SelectedValuePath="id" DisplayMemberPath="name"/>
+                <Button Content="Button" Canvas.Left="38" Canvas.Top="10" Click="Button_Click"/>
+            </Canvas>
         </UniformGrid>
 
         <DataGrid x:Name="dgStaff" Grid.Row="1" Background="Beige" AutoGenerateColumns="False">

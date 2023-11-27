@@ -71,12 +71,41 @@ namespace WPF_ADO_NET
         {
             //var model = dgStaff.SelectedItems[0] as StaffInfoModel;
             //Title = $"{model.id} - {model.l_name} - { model.f_name }";
+
+
             fmAdd form = new fmAdd();                        
             if ((bool)form.ShowDialog())
             {
                 Title = form.tbCompany.Text;
+
+
+                
             }
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cbCompany.ItemsSource = getComboBox("Company");
+        }
+
+
+        List<ComboBoxModel> getComboBox(string value)
+        {
+            string sql = $"select id, name from {value} order by name";
+
+            using (SqlCommand cmd = new SqlCommand(sql, db))
+            {
+                DataTable dt = new DataTable();
+                dt.Load(cmd.ExecuteReader());
+                return (from DataRow dr in dt.Rows
+                            select new ComboBoxModel()
+                            {
+                                id = dr["id"].ToString(),
+                                name = dr["name"].ToString()
+                            }).ToList();
+            }
+        }
+
     }
 }

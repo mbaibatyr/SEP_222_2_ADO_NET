@@ -20,9 +20,13 @@ namespace WPF_ADO_NET.Model
         public string head_office_location { get; set; }
         public string date_foundation { get; set; }
         public string cost { get; set; }
-        public string ceo { get; set; }
+        public string ceo { get; set; }       
 
-        
+    }
 
+    internal class ComboBoxModel
+    {
+        public string id { get; set; }
+        public string name { get; set; }
     }
 }
