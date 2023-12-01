@@ -119,7 +119,7 @@ namespace WPF_ADO_NET
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var value = cbCompany.SelectedValue.ToString();
+            var value = cbCompany.SelectedValue.ToString();            
             value = (cbCompany.SelectedItem as ComboBoxModel).id;
 
         }
