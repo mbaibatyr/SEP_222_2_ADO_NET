@@ -26,6 +26,7 @@
             <TextBox x:Name="tbCompany" Background="Bisque" Width="200" />
             <Label Content="Компания" HorizontalAlignment="Right" />
             <TextBox x:Name="tbCompany2" Background="Bisque" Width="200" />
+            <DatePicker Margin="0,40,0,-40"/>
         </UniformGrid>
 
 

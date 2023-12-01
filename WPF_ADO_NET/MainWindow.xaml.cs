@@ -29,7 +29,7 @@ namespace WPF_ADO_NET
         {
             InitializeComponent();
             db = new SqlConnection(ConfigurationManager.AppSettings["db"]);
-            db.Open();            
+            db.Open();
         }
 
         private void btFind_Click(object sender, RoutedEventArgs e)
@@ -42,21 +42,21 @@ namespace WPF_ADO_NET
                 dt.Load(cmd.ExecuteReader());
 
                 List<StaffInfoModel> lst = (from DataRow dr in dt.Rows
-                               select new StaffInfoModel()
-                               {
-                                   id = dr["id"].ToString(),
-                                   ceo = dr["ceo"].ToString(),
-                                   company = dr["company"].ToString(),
-                                   cost = dr["cost"].ToString(),
-                                   date_birth = dr["date_birth"].ToString(),
-                                   date_foundation = dr["date_foundation"].ToString(),
-                                   f_name = dr["f_name"].ToString(),
-                                   gender = dr["gender"].ToString(),
-                                   head_office_location = dr["head_office_location"].ToString(),
-                                   l_name = dr["l_name"].ToString(),
-                                   position = dr["position"].ToString(),
-                                   salary = dr["salary"].ToString()                                   
-                               }).ToList();
+                                            select new StaffInfoModel()
+                                            {
+                                                id = dr["id"].ToString(),
+                                                ceo = dr["ceo"].ToString(),
+                                                company = dr["company"].ToString(),
+                                                cost = dr["cost"].ToString(),
+                                                date_birth = dr["date_birth"].ToString(),
+                                                date_foundation = dr["date_foundation"].ToString(),
+                                                f_name = dr["f_name"].ToString(),
+                                                gender = dr["gender"].ToString(),
+                                                head_office_location = dr["head_office_location"].ToString(),
+                                                l_name = dr["l_name"].ToString(),
+                                                position = dr["position"].ToString(),
+                                                salary = dr["salary"].ToString()
+                                            }).ToList();
 
                 dgStaff.ItemsSource = lst;
             }
@@ -75,18 +75,23 @@ namespace WPF_ADO_NET
 
             fmAdd form = new fmAdd();
             if ((bool)form.ShowDialog())
-            {                
+            {
                 using (SqlCommand cmd = new SqlCommand("pStaffInsert", db))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@l_name", form.tbLName.Text);
-                    cmd.Parameters.AddWithValue("@compmany", form.cbCompany.SelectedValue.ToString());
+                    //cmd.Parameters.AddWithValue("@l_name", form.tbLName.Text);
+                    //cmd.Parameters.AddWithValue("@compmany", form.cbCompany.SelectedValue.ToString());
 
 
-
+                    object ob = cmd.ExecuteScalar();
+                    string result = null;
+                    if (ob != null)
+                        result = ob.ToString();
+                    if (result == "ok")
+                        ;//refresh
                 }
             }
-            
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -104,11 +109,11 @@ namespace WPF_ADO_NET
                 DataTable dt = new DataTable();
                 dt.Load(cmd.ExecuteReader());
                 return (from DataRow dr in dt.Rows
-                            select new ComboBoxModel()
-                            {
-                                id = dr["id"].ToString(),
-                                name = dr["name"].ToString()
-                            }).ToList();
+                        select new ComboBoxModel()
+                        {
+                            id = dr["id"].ToString(),
+                            name = dr["name"].ToString()
+                        }).ToList();
             }
         }
 
